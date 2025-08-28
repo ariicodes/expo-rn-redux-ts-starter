@@ -1,23 +1,39 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:recommended", ":maintainLockFilesWeekly"],
+	"extends": [
+		"config:recommended",
+		":maintainLockFilesWeekly"
+	],
 	"packageRules": [
 		{
-			"matchManagers": ["npm"],
+			"matchManagers": [
+				"npm"
+			],
 			"groupName": "all npm deps",
-			"schedule": ["before 9am on sunday"]
+			"schedule": [
+				"before 9am on sunday"
+			]
 		},
-    {
-			"matchPackagePatterns": ["^expo"],
-			"groupName": "Expo SDK"
+		{
+			"groupName": "Expo SDK",
+			"matchPackageNames": [
+				"/^expo/"
+			]
 		},
-    {
-			"matchPackagePatterns": ["^react", "react-native"],
-			"groupName": "React + React Native"
+		{
+			"groupName": "React + React Native",
+			"matchPackageNames": [
+				"/^react/",
+				"/react-native/"
+			]
 		},
-    {
-			"matchPackagePatterns": ["eslint", "jest", "typescript"],
-			"groupName": "Dev Tooling"
+		{
+			"groupName": "Dev Tooling",
+			"matchPackageNames": [
+				"/eslint/",
+				"/jest/",
+				"/typescript/"
+			]
 		}
 	]
 }
